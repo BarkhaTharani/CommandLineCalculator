@@ -16,9 +16,12 @@ namespace CommandLineCalculator
                 return;
             }
 
-            string nums = args.Length == 2 ? args[1] : String.Empty;
+           string nums = args.Length == 2 ? args[1] : String.Empty;
 
-            string[] strings = !String.IsNullOrEmpty(nums) ? nums.Split(',') : new string[0];
+            string[] splitChar = {"," , "\\n"};
+
+            string[] strings = !String.IsNullOrEmpty(nums) ? nums.Split(splitChar, StringSplitOptions.None ) : new string[0];
+            
             int[] list = Array.ConvertAll(strings, s => int.Parse(s));
             long result = 0;
 
