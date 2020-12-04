@@ -25,7 +25,7 @@ namespace CommandLineCalculator
             switch (operationType)
             {
                 case "sum":
-                    result = AddTwoNumbers(list);
+                    result = Add(list);
                     Console.WriteLine(result);
                     break;
 
@@ -35,13 +35,10 @@ namespace CommandLineCalculator
             
         }
 
-        static long AddTwoNumbers(params int[] list)
+        static long Add(params int[] list)
         {
             if (list.Length <= 0)
                 return 0;
-
-            if (list.Length > 2)
-                throw new NotSupportedException("Addition upto two numbers is supported");
 
             long sum = 0;
             for (int i = 0; i < list.Length; i++)
