@@ -43,7 +43,9 @@ namespace CommandLineCalculator
             
             int[] list = Array.ConvertAll(strings, s => int.Parse(s));
 
-            var negativeNumbers = list.Where(i =>  i < 0).ToArray();
+            var numbersLessThanThousand = list.Where( i => i <= 1000).ToArray();
+
+            var negativeNumbers = numbersLessThanThousand.Where(i =>  i < 0).ToArray();
 
             if(negativeNumbers.Length > 0)
             {
@@ -56,7 +58,7 @@ namespace CommandLineCalculator
             switch (operationType)
             {
                 case "add":
-                    result = Add(list);
+                    result = Add(numbersLessThanThousand);
                     Console.WriteLine(result);
                     break;
 
