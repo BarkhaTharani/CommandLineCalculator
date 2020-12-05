@@ -43,8 +43,13 @@ namespace CommandLineCalculator
             
             int[] list = Array.ConvertAll(strings, s => int.Parse(s));
 
-            if(list.Any(i => i < 0))
-                throw new NotSupportedException(@"Negative numbers not allowed.");
+            var negativeNumbers = list.Where(i =>  i < 0).ToArray();
+
+            if(negativeNumbers.Length > 0)
+            {
+                var res = String.Join("," , negativeNumbers);
+                throw new NotSupportedException(String.Format("Negative numbers ({0}) not allowed.", res));
+            }
 
             long result = 0;
 
