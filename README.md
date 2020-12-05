@@ -19,7 +19,7 @@ dotnet run add "\\;\\1;2;3;4"
 dotnet run multiple "\\;\\1;2;3;4"
 ```
 
-**Note: Please provide arguements after the provided operation type in double quotes to escape the characters from terminal.
+**Note: Please provide arguments after the provided operation type in double quotes to escape the characters from terminal.
 Otherwise application may not behave as expected.
 (like in above example: ```dotnet run add "\\,\\1,2,3"```)
 
