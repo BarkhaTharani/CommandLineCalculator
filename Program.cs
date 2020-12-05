@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CommandLineCalculator
 {
@@ -41,6 +42,10 @@ namespace CommandLineCalculator
             string[] strings = !String.IsNullOrEmpty(inputNumbers) ? inputNumbers.Split(delimeterChar, StringSplitOptions.None ) : new string[0];
             
             int[] list = Array.ConvertAll(strings, s => int.Parse(s));
+
+            if(list.Any(i => i < 0))
+                throw new NotSupportedException(@"Negative numbers not allowed.");
+
             long result = 0;
 
             switch (operationType)
